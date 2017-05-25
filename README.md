@@ -1,2 +1,3 @@
 # Beers_Manager
-School project In Java: Application
+Application to manage the Beer's purchases. Using Hibernate to interact with the DB. Sql Script with samples included
+(School Application)
