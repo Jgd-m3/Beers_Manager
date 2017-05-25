@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14-dic-2016 19:54:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="acc_r3_javier_gonzalez.bbdd.R3Cerveza" table="R3_CERVEZA" schema="PRACTICASIAP" optimistic-lock="version">
+        <id name="cid" type="int">
+            <column name="CID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="cnombre" type="string">
+            <column name="CNOMBRE" length="25" not-null="true" />
+        </property>
+        <property name="cgraduacion" type="big_decimal">
+            <column name="CGRADUACION" precision="3" scale="1" />
+        </property>
+        <property name="cprecio" type="big_decimal">
+            <column name="CPRECIO" precision="4" />
+        </property>
+        <set name="r3Ventases" table="R3_VENTAS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VREFCID" precision="5" scale="0" />
+            </key>
+            <one-to-many class="acc_r3_javier_gonzalez.bbdd.R3Ventas" />
+        </set>
+    </class>
+</hibernate-mapping>

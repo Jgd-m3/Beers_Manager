@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14-dic-2016 19:54:29 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="acc_r3_javier_gonzalez.bbdd.R3Tiendas" table="R3_TIENDAS" schema="PRACTICASIAP" optimistic-lock="version">
+        <id name="tid" type="int">
+            <column name="TID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="tnombre" type="string">
+            <column name="TNOMBRE" length="30" not-null="true" />
+        </property>
+        <property name="ttipo" type="string">
+            <column name="TTIPO" length="20" not-null="true" />
+        </property>
+        <property name="tciudad" type="string">
+            <column name="TCIUDAD" length="15" />
+        </property>
+        <set name="r3Ventases" table="R3_VENTAS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VREFTID" precision="5" scale="0" />
+            </key>
+            <one-to-many class="acc_r3_javier_gonzalez.bbdd.R3Ventas" />
+        </set>
+    </class>
+</hibernate-mapping>
